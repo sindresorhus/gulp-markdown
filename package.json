@@ -1,0 +1,39 @@
+{
+  "name": "gulp-markdown",
+  "version": "0.0.0",
+  "description": "Markdown to HTML",
+  "license": "MIT",
+  "repository": "sindresorhus/gulp-markdown",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "markdown",
+    "marked",
+    "md",
+    "compile",
+    "convert",
+    "markup",
+    "html"
+  ],
+  "dependencies": {
+    "event-stream": "~3.0.20",
+    "gulp-util": "~2.2.0",
+    "marked": "~0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
