@@ -29,8 +29,8 @@
     "html"
   ],
   "dependencies": {
-    "event-stream": "~3.0.20",
     "gulp-util": "~2.2.0",
+    "map-stream": "0.0.4",
     "marked": "~0.3.0"
   },
   "devDependencies": {
