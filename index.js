@@ -11,6 +11,7 @@ module.exports = function (options) {
 			}
 
 			file.contents = new Buffer(data);
+			file.path = gutil.replaceExtension(file.path, '.html');
 			cb(null, file);
 		});
 	});
