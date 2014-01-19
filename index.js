@@ -1,18 +1,30 @@
 'use strict';
 var gutil = require('gulp-util');
-var map = require('map-stream');
+var through = require('through2');
 var marked = require('marked');
 
 module.exports = function (options) {
-	return map(function (file, cb) {
+	return through.obj(function (file, enc, cb) {
+		if (file.isNull()) {
+			this.push(file);
+			return cb();
+		}
+
+		if (file.isStream()) {
+			this.emit('error', new gutil.PluginError('gulp-markdown', 'Streaming not supported'));
+			return cb();
+		}
+
 		marked(file.contents.toString(), options, function (err, data) {
 			if (err) {
-				return cb(new Error('gulp-markdown: ' + err));
+				this.emit('error', new gutil.PluginError('gulp-markdown', err));
+			} else {
+				file.contents = new Buffer(data);
+				file.path = gutil.replaceExtension(file.path, '.html');
 			}
 
-			file.contents = new Buffer(data);
-			file.path = gutil.replaceExtension(file.path, '.html');
-			cb(null, file);
-		});
+			this.push(file);
+			cb();
+		}.bind(this));
 	});
 };
