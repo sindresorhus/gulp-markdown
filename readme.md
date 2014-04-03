@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com)-markdown [![Build Status](https://secure.travis-ci.org/sindresorhus/gulp-markdown.png?branch=master)](http://travis-ci.org/sindresorhus/gulp-markdown)
+# [gulp](http://gulpjs.com)-markdown [![Build Status](https://travis-ci.org/sindresorhus/gulp-markdown.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-markdown)
 
 > Markdown to HTML with [marked](https://github.com/chjj/marked)
 
@@ -7,14 +7,12 @@
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-markdown)
-
-```
-npm install --save-dev gulp-markdown
+```bash
+$ npm install --save-dev gulp-markdown
 ```
 
 
-## Example
+## Usage
 
 ```js
 var gulp = require('gulp');
@@ -37,4 +35,4 @@ See the marked [options](https://github.com/chjj/marked#options-1).
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
