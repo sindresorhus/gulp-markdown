@@ -1,7 +1,7 @@
 'use strict';
 var assert = require('assert');
 var gutil = require('gulp-util');
-var markdown = require('./index');
+var markdown = require('./');
 
 it('should compile Markdown to HTML', function (cb) {
 	var stream = markdown();

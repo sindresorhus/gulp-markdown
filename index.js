@@ -17,7 +17,7 @@ module.exports = function (options) {
 
 		marked(file.contents.toString(), options, function (err, data) {
 			if (err) {
-				this.emit('error', new gutil.PluginError('gulp-markdown', err));
+				this.emit('error', new gutil.PluginError('gulp-markdown', err, {fileName: file.path}));
 			} else {
 				file.contents = new Buffer(data);
 				file.path = gutil.replaceExtension(file.path, '.html');
