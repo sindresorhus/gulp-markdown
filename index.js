@@ -6,25 +6,25 @@ var marked = require('marked');
 module.exports = function (options) {
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
-			this.push(file);
-			return cb();
+			cb(null, file);
+			return;
 		}
 
 		if (file.isStream()) {
-			this.emit('error', new gutil.PluginError('gulp-markdown', 'Streaming not supported'));
-			return cb();
+			cb(new gutil.PluginError('gulp-markdown', 'Streaming not supported'));
+			return;
 		}
 
 		marked(file.contents.toString(), options, function (err, data) {
 			if (err) {
-				this.emit('error', new gutil.PluginError('gulp-markdown', err, {fileName: file.path}));
-			} else {
-				file.contents = new Buffer(data);
-				file.path = gutil.replaceExtension(file.path, '.html');
+				cb(new gutil.PluginError('gulp-markdown', err, {fileName: file.path}));
+				return;
 			}
 
-			this.push(file);
-			cb();
-		}.bind(this));
+			file.contents = new Buffer(data);
+			file.path = gutil.replaceExtension(file.path, '.html');
+
+			cb(null, file);
+		});
 	});
 };

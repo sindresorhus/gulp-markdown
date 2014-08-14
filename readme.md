@@ -7,7 +7,7 @@
 
 ## Install
 
-```bash
+```sh
 $ npm install --save-dev gulp-markdown
 ```
 
@@ -35,4 +35,4 @@ See the marked [options](https://github.com/chjj/marked#options-1).
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)
