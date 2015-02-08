@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com)-markdown [![Build Status](https://travis-ci.org/sindresorhus/gulp-markdown.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-markdown)
+# gulp-markdown [![Build Status](https://travis-ci.org/sindresorhus/gulp-markdown.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-markdown)
 
 > Markdown to HTML with [marked](https://github.com/chjj/marked)
 
@@ -7,7 +7,7 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save-dev gulp-markdown
 ```
 
