@@ -32,6 +32,10 @@ gulp.task('default', function () {
 
 See the marked [options](https://github.com/chjj/marked#options-1).
 
+### markdown.marked
+
+Access the `marked` object to customize the [lexer](https://github.com/chjj/marked#access-to-lexer-and-parser), [parser](https://github.com/chjj/marked#access-to-lexer-and-parser) or [renderer](https://github.com/chjj/marked#renderer).
+
 
 ## License
 
