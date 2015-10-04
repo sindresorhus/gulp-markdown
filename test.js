@@ -20,3 +20,10 @@ it('should compile Markdown to HTML', function (cb) {
 
 	stream.end();
 });
+
+it('should expose the marked object', function(){
+	assert.ok(markdown.marked);
+	assert.ok(markdown.marked.Renderer);
+	assert.ok(markdown.marked.lexer);
+	assert.ok(markdown.marked.parser);
+})
