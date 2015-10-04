@@ -28,3 +28,5 @@ module.exports = function (options) {
 		});
 	});
 };
+
+module.exports.marked = marked;
