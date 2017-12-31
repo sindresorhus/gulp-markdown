@@ -2,7 +2,6 @@
 const through = require('through2');
 const marked = require('marked');
 const PluginError = require('plugin-error');
-const replaceExt = require('replace-ext');
 
 module.exports = options => {
 	return through.obj((file, enc, cb) => {
@@ -23,7 +22,7 @@ module.exports = options => {
 			}
 
 			file.contents = Buffer.from(data);
-			file.path = replaceExt(file.path, '.html');
+			file.extname = '.html';
 
 			cb(null, file);
 		});
