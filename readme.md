@@ -1,8 +1,8 @@
 # gulp-markdown [![Build Status](https://travis-ci.org/sindresorhus/gulp-markdown.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-markdown)
 
-> Markdown to HTML with [marked](https://github.com/chjj/marked)
+> Markdown to HTML with [`marked`](https://github.com/chjj/marked)
 
-*Issues with the output should be reported on the marked [issue tracker](https://github.com/chjj/marked/issues).*
+*Issues with the output should be reported on the `marked` [issue tracker](https://github.com/chjj/marked/issues).*
 
 
 ## Install
@@ -15,22 +15,22 @@ $ npm install --save-dev gulp-markdown
 ## Usage
 
 ```js
-var gulp = require('gulp');
-var markdown = require('gulp-markdown');
+const gulp = require('gulp');
+const markdown = require('gulp-markdown');
 
-gulp.task('default', function () {
-	return gulp.src('intro.md')
+gulp.task('default', () =>
+	gulp.src('intro.md')
 		.pipe(markdown())
-		.pipe(gulp.dest('dist'));
-});
+		.pipe(gulp.dest('dist'))
+);
 ```
 
 
 ## API
 
-### markdown(options)
+### markdown([options])
 
-See the marked [options](https://github.com/chjj/marked#options-1).
+See the `marked` [options](https://github.com/chjj/marked#options-1).
 
 ### markdown.marked
 
@@ -39,4 +39,4 @@ Access the `marked` object to customize the [lexer](https://github.com/chjj/mark
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

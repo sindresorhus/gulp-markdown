@@ -1,39 +1,42 @@
 {
-  "name": "gulp-markdown",
-  "version": "1.2.0",
-  "description": "Markdown to HTML",
-  "license": "MIT",
-  "repository": "sindresorhus/gulp-markdown",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "gulpplugin",
-    "markdown",
-    "marked",
-    "md",
-    "compile",
-    "convert",
-    "markup",
-    "html"
-  ],
-  "dependencies": {
-    "gulp-util": "^3.0.0",
-    "marked": "^0.3.2",
-    "through2": "^2.0.0"
-  },
-  "devDependencies": {
-    "mocha": "*"
-  }
+	"name": "gulp-markdown",
+	"version": "1.2.0",
+	"description": "Markdown to HTML",
+	"license": "MIT",
+	"repository": "sindresorhus/gulp-markdown",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"gulpplugin",
+		"markdown",
+		"marked",
+		"md",
+		"compile",
+		"convert",
+		"markup",
+		"html"
+	],
+	"dependencies": {
+		"marked": "^0.3.9",
+		"plugin-error": "^0.1.2",
+		"replace-ext": "^1.0.0",
+		"through2": "^2.0.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"vinyl": "^2.1.0",
+		"xo": "*"
+	}
 }

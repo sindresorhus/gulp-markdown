@@ -1,28 +1,29 @@
 'use strict';
-var gutil = require('gulp-util');
-var through = require('through2');
-var marked = require('marked');
+const through = require('through2');
+const marked = require('marked');
+const PluginError = require('plugin-error');
+const replaceExt = require('replace-ext');
 
-module.exports = function (options) {
-	return through.obj(function (file, enc, cb) {
+module.exports = options => {
+	return through.obj((file, enc, cb) => {
 		if (file.isNull()) {
 			cb(null, file);
 			return;
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-markdown', 'Streaming not supported'));
+			cb(new PluginError('gulp-markdown', 'Streaming not supported'));
 			return;
 		}
 
-		marked(file.contents.toString(), options, function (err, data) {
+		marked(file.contents.toString(), options, (err, data) => {
 			if (err) {
-				cb(new gutil.PluginError('gulp-markdown', err, {fileName: file.path}));
+				cb(new PluginError('gulp-markdown', err, {fileName: file.path}));
 				return;
 			}
 
-			file.contents = new Buffer(data);
-			file.path = gutil.replaceExtension(file.path, '.html');
+			file.contents = Buffer.from(data);
+			file.path = replaceExt(file.path, '.html');
 
 			cb(null, file);
 		});
