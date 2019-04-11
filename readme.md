@@ -30,7 +30,7 @@ gulp.task('default', () =>
 
 ### markdown([options])
 
-See the `marked` [options](https://marked.js.org/#/USING_ADVANCED.md).
+See the `marked` [options](https://marked.js.org/#/USING_ADVANCED.md#options).
 
 ### markdown.marked
 

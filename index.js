@@ -4,27 +4,27 @@ const marked = require('marked');
 const PluginError = require('plugin-error');
 
 module.exports = options => {
-	return through.obj((file, enc, cb) => {
+	return through.obj((file, encoding, callback) => {
 		if (file.isNull()) {
-			cb(null, file);
+			callback(null, file);
 			return;
 		}
 
 		if (file.isStream()) {
-			cb(new PluginError('gulp-markdown', 'Streaming not supported'));
+			callback(new PluginError('gulp-markdown', 'Streaming not supported'));
 			return;
 		}
 
-		marked(file.contents.toString(), options, (err, data) => {
-			if (err) {
-				cb(new PluginError('gulp-markdown', err, {fileName: file.path}));
+		marked(file.contents.toString(), options, (error, data) => {
+			if (error) {
+				callback(new PluginError('gulp-markdown', error, {fileName: file.path}));
 				return;
 			}
 
 			file.contents = Buffer.from(data);
 			file.extname = '.html';
 
-			cb(null, file);
+			callback(null, file);
 		});
 	});
 };
