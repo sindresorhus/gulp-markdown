@@ -7,7 +7,7 @@ const PluginError = require('plugin-error');
 module.exports = options => {
 	marked.use(options);
 	const pMarked = promisify(marked);
-	
+
 	return through.obj(async (file, encoding, callback) => {
 		if (file.isNull()) {
 			callback(null, file);
