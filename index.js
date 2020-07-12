@@ -4,9 +4,13 @@ const through = require('through2');
 const marked = require('marked');
 const PluginError = require('plugin-error');
 
-const pMarked = promisify(marked);
-
 module.exports = options => {
+	if (options) {
+		marked.use(options);
+	}
+
+	const pMarked = promisify(marked);
+
 	return through.obj(async (file, encoding, callback) => {
 		if (file.isNull()) {
 			callback(null, file);
@@ -19,7 +23,7 @@ module.exports = options => {
 		}
 
 		try {
-			const data = await pMarked(file.contents.toString(), options);
+			const data = await pMarked(file.contents.toString());
 			file.contents = Buffer.from(data);
 			file.extname = '.html';
 			callback(null, file);
