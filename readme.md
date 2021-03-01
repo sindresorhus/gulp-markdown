@@ -4,13 +4,11 @@
 
 *Issues with the output should be reported on the `marked` [issue tracker](https://github.com/markedjs/marked/issues).*
 
-
 ## Install
 
 ```
 $ npm install --save-dev gulp-markdown
 ```
-
 
 ## Usage
 
@@ -24,7 +22,6 @@ exports.default = () => (
 		.pipe(gulp.dest('dist'))
 );
 ```
-
 
 ## API
 

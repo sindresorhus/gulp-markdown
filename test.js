@@ -1,7 +1,7 @@
 import test from 'ava';
 import Vinyl from 'vinyl';
 import pEvent from 'p-event';
-import markdown from '.';
+import markdown from './index.js';
 
 test('compiles Markdown to HTML', async t => {
 	const stream = markdown();
