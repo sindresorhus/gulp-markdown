@@ -6,17 +6,17 @@
 
 ## Install
 
-```
-$ npm install --save-dev gulp-markdown
+```sh
+npm install --save-dev gulp-markdown
 ```
 
 ## Usage
 
 ```js
-const gulp = require('gulp');
-const markdown = require('gulp-markdown');
+import gulp from 'gulp';
+import markdown from 'gulp-markdown';
 
-exports.default = () => (
+export default () => (
 	gulp.src('intro.md')
 		.pipe(markdown())
 		.pipe(gulp.dest('dist'))
@@ -25,10 +25,10 @@ exports.default = () => (
 
 ## API
 
-### markdown(options?)
+### markdown(options?) <sup>(default export)</sup>
 
-See the `marked` [options](https://marked.js.org/#/USING_ADVANCED.md#options).
+See the `marked` [options](https://marked.js.org/using_advanced#options).
 
-### markdown.marked
+### marked <sup>(named export)</sup>
 
-Access the `marked` object to customize the [lexer](https://marked.js.org/#/USING_PRO.md#lexer), [parser](https://marked.js.org/#/USING_PRO.md#parser) or [renderer](https://marked.js.org/#/USING_PRO.md#renderer).
+Access the `marked` object to customize the [lexer](https://marked.js.org/using_pro#lexer), [parser](https://marked.js.org/using_pro#parser) or [renderer](https://marked.js.org/using_pro#renderer).

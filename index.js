@@ -1,36 +1,32 @@
-'use strict';
-const {promisify} = require('util');
-const through = require('through2');
-const marked = require('marked');
-const PluginError = require('plugin-error');
+import {Buffer} from 'node:buffer';
+import transformStream from 'easy-transform-stream';
+import PluginError from 'plugin-error';
+import {marked} from 'marked';
 
-module.exports = options => {
+export default function gulpMarked(options) {
 	if (options) {
 		marked.use(options);
 	}
 
-	const pMarked = promisify(marked);
-
-	return through.obj(async (file, encoding, callback) => {
+	return transformStream({objectMode: true}, async file => {
 		if (file.isNull()) {
-			callback(null, file);
-			return;
+			return file;
 		}
 
 		if (file.isStream()) {
-			callback(new PluginError('gulp-markdown', 'Streaming not supported'));
-			return;
+			throw new PluginError('gulp-markdown', 'Streaming not supported');
 		}
 
 		try {
-			const data = await pMarked(file.contents.toString());
-			file.contents = Buffer.from(data);
-			file.extname = '.html';
-			callback(null, file);
+			file.contents = Buffer.from(marked.parse(file.contents.toString()));
 		} catch (error) {
-			callback(new PluginError('gulp-markdown', error, {fileName: file.path}));
+			throw new PluginError('gulp-markdown', error, {fileName: file.path});
 		}
-	});
-};
 
-module.exports.marked = marked;
+		file.extname = '.html';
+
+		return file;
+	});
+}
+
+export {marked} from 'marked';

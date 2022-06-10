@@ -1,7 +1,8 @@
+import {Buffer} from 'node:buffer';
 import test from 'ava';
 import Vinyl from 'vinyl';
-import pEvent from 'p-event';
-import markdown from './index.js';
+import {pEvent} from 'p-event';
+import markdown, {marked} from './index.js';
 
 test('compiles Markdown to HTML', async t => {
 	const stream = markdown();
@@ -9,7 +10,7 @@ test('compiles Markdown to HTML', async t => {
 
 	stream.end(new Vinyl({
 		path: 'fixture.md',
-		contents: Buffer.from('*foo*')
+		contents: Buffer.from('*foo*'),
 	}));
 
 	const file = await dataPromise;
@@ -19,8 +20,8 @@ test('compiles Markdown to HTML', async t => {
 });
 
 test('exposes the marked object', t => {
-	t.truthy(markdown.marked);
-	t.truthy(markdown.marked.Renderer);
-	t.truthy(markdown.marked.lexer);
-	t.truthy(markdown.marked.parser);
+	t.truthy(marked);
+	t.truthy(marked.Renderer);
+	t.truthy(marked.lexer);
+	t.truthy(marked.parser);
 });
