@@ -1,6 +1,6 @@
 {
 	"name": "gulp-markdown",
-	"version": "7.0.0",
+	"version": "8.0.0",
 	"description": "Markdown to HTML",
 	"license": "MIT",
 	"repository": "sindresorhus/gulp-markdown",
